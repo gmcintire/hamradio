@@ -9,6 +9,6 @@ group :development do
 end
 
 group :test do
-  gem "autotest"
-  gem "redgreen"
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
 end

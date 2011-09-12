@@ -1,9 +1,9 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.2)
-    autotest (4.4.6)
-      ZenTest (>= 4.4.1)
+    autotest-fsevent (0.2.5)
+      sys-uname
+    autotest-growl (0.2.9)
     git (1.2.5)
     jeweler (1.6.4)
       bundler (~> 1.0)
@@ -12,17 +12,17 @@ GEM
     log_buddy (0.6.0)
     rake (0.9.2)
     rcov (0.9.10)
-    redgreen (1.2.2)
     shoulda (2.11.3)
+    sys-uname (0.8.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  autotest
+  autotest-fsevent
+  autotest-growl
   bundler (~> 1.0.0)
   jeweler (~> 1.6.4)
   log_buddy
   rcov
-  redgreen
   shoulda

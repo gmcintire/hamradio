@@ -4,7 +4,7 @@ class HamRadio
 
   end
 
-  def dec_to_grid(dms)
+  def grid_encode(dms)
 
     grid = ''
 

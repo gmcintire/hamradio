@@ -1,9 +1,14 @@
 = hamradio
 
-Description goes here.
+A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
+
+== Current usage
+* To encode a gridsquare:
+    h = HamRadio.new
+    h.grid_encode([33.113675,-96.487856])
 
 == Contributing to hamradio
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
