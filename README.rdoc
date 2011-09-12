@@ -3,7 +3,7 @@
 A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 
 == Current usage
-* To encode a gridsquare:
+* To encode a gridsquare
     h = HamRadio.new
     h.grid_encode([33.113675,-96.487856])
 
