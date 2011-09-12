@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "hamradio"
   gem.homepage = "http://github.com/gmcintire/hamradio"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A collection of useful Amateur (Ham) Radio utilities.}
+  gem.description = %Q{Includes grid square decoding/encoding & call sign lookup.}
   gem.email = "gmcintire@gmail.com"
   gem.authors = ["Graham McIntire"]
   # dependencies defined in Gemfile
@@ -42,8 +42,8 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
+require 'rdoc/task'
+RDoc::Task.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
