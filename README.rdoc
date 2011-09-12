@@ -1,7 +1,8 @@
 = hamradio
 
-A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 {<img src="http://travis-ci.org/gmcintire/hamradio.png" />}[http://travis-ci.org/github/hamradio]
+
+A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 
 == Current usage
 * To encode a gridsquare
