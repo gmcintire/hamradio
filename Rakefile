@@ -17,7 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "hamradio"
   gem.homepage = "http://github.com/gmcintire/hamradio"
   gem.license = "MIT"
-  gem.summary = %Q{A collection of useful Amateur (Ham) Radio utilities.}
+  gem.summary = %Q{A collection of useful Amateur (Ham) Radio utilities by W5ISP.}
   gem.description = %Q{Includes grid square decoding/encoding & call sign lookup.}
   gem.email = "gmcintire@gmail.com"
   gem.authors = ["Graham McIntire"]

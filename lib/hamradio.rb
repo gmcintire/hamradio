@@ -1,4 +1,8 @@
-module HamRadio
+class HamRadio
+
+  def initialize()
+
+  end
 
   def dec_to_grid(dms)
 
