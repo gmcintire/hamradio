@@ -36,4 +36,8 @@ class HamRadio
 
   end
 
+  def valid_gridsquare(grid)
+    (grid =~ /[a-z][a-z]\d\d/i) != nil
+  end
+
 end
