@@ -4,7 +4,7 @@
 
 A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 
-== Current usage
+== Usage
 * To encode a gridsquare from decimal latitude/longitude 
     h = HamRadio.new
     h.grid_encode([33.113675,-96.487856])
