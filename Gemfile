@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+gem 'faraday'
 
 group :development do
   gem "log_buddy"
