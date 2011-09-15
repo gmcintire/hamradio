@@ -1,6 +1,6 @@
 = hamradio
 
-{<img src="http://travis-ci.org/gmcintire/hamradio.png" />}[http://travis-ci.org/github/hamradio]
+{<img src="http://travis-ci.org/gmcintire/hamradio.png" />}[http://travis-ci.org/gmcintire/hamradio]
 
 A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 
