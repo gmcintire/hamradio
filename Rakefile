@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = %Q{A collection of useful Amateur (Ham) Radio utilities by W5ISP.}
   gem.description = %Q{Includes grid square decoding/encoding & call sign lookup.}
   gem.email = "gmcintire@gmail.com"
-  gem.authors = ["Graham McIntire"]
+  gem.authors = ["Graham McIntire W5ISP"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
