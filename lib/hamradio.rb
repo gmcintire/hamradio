@@ -41,6 +41,8 @@ class HamRadio
   end
 
   def lookup_callsign(call)
+    require 'nestful'
+
     c = Nestful.get 'http://callbytxt.org/db/'+call+'.json', :format => :json #=> {:json_hash => 1}
     c['calls']
   end
