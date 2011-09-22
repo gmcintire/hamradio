@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem 'faraday'
+gem 'nestful'
 
 group :development do
   gem "log_buddy"

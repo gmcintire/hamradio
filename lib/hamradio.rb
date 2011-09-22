@@ -40,4 +40,9 @@ class HamRadio
     (grid =~ /[a-z][a-z]\d\d/i) != nil
   end
 
+  def lookup_callsign(call)
+    c = Nestful.get 'http://callbytxt.org/db/'+call+'.json', :format => :json #=> {:json_hash => 1}
+    c['calls']
+  end
+
 end
