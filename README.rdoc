@@ -4,6 +4,8 @@
 
 A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
 
+Ruby 1.9+ is required.
+
 == Usage
 * To encode a gridsquare from decimal latitude/longitude
     h = HamRadio.new

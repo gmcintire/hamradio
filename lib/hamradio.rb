@@ -6,6 +6,8 @@ class HamRadio
 
   def grid_encode(dms)
 
+    # return nil if this isn't a valid gridsquare
+    return nil if self.valid_gridsquare(dms) == nil
     grid = ''
 
     lat = dms[0].to_f+90
@@ -37,7 +39,7 @@ class HamRadio
   end
 
   def valid_gridsquare(grid)
-    (grid =~ /[a-z][a-z]\d\d/i) != nil
+    (grid =~ /[a-z][a-z]\d\d[a-z]*/i) != nil
   end
 
   def lookup_callsign(call)

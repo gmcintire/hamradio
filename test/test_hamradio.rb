@@ -1,9 +1,6 @@
 require 'helper'
 
 class TestHamradio < Test::Unit::TestCase
-#  should "probably rename this file and start testing for real" do
-#    flunk "hey buddy, you should probably rename this file and start testing for real"
-#  end
 
   should "encode gridsquare culleoka" do
     h = HamRadio.new
@@ -22,5 +19,31 @@ class TestHamradio < Test::Unit::TestCase
     grid = h.grid_encode([33.24617412,-96.42647853])
     assert_equal('EM13sf', grid)
   end
+
+  should "encode gridsquare invalid string" do
+    h = HamRadio.new
+    grid = h.grid_encode('over there')
+    assert_equal(nil, grid)
+  end
+
+  should "encode gridsquare invalid number" do
+    h = HamRadio.new
+    grid = h.grid_encode(1234567890)
+    assert_equal(nil, grid)
+  end
+
+  should "encode gridsquare invalid randomness" do
+    h = HamRadio.new
+    grid = h.grid_encode(Random.rand(1000))
+    assert_equal(nil, grid)
+  end
+
+#  should "callsign lookup" do
+#    h = HamRadio.new
+#    grid = h.lookup_callsign('w5isp')
+#    w5isp = {"callsign"=>"W5ISP", "city"=>"BLUE RIDGE", "country"=>nil, "created_at"=>"2011-06-19T23:19:47Z", "dob"=>nil, "effective"=>"2011-04-30", "expiration"=>"2021-04-30", "first_name"=>"GRAHAM D", "gridsquare"=>"\u0004\f13\u0012\u0005", "id"=>585745, "last_name"=>"MCINTIRE", "lat"=>"33.245919", "license_class"=>"G", "long"=>"-96.426614", "precision"=>"address", "previous_call"=>"", "previous_class"=>nil, "state"=>"TX", "street"=>"11411 CR 571", "updated_at"=>"2011-06-23T20:41:47Z", "zip"=>"75424"}
+#    assert_equal(w5isp, grid)
+#  end
+
 
 end
