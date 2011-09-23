@@ -1,6 +1,4 @@
 source "http://rubygems.org"
-gem 'faraday'
-#gem 'nestful'
 gem 'httparty'
 
 group :development do
