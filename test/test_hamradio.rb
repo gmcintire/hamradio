@@ -51,5 +51,46 @@ class TestHamradio < Test::Unit::TestCase
 #    assert_equal(nil, grid)
 #  end
 
+  should "Valid gridsquare check 1" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('EM13')
+    assert_equal(true, grid)
+  end
+
+  should "Valid gridsquare check 2" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('EM13sf')
+    assert_equal(true, grid)
+  end
+
+  should "Valid gridsquare check 3" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('Em13sF')
+    assert_equal(true, grid)
+  end
+
+  should "Invalid gridsquare check 1" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('EM')
+    assert_equal(false, grid)
+  end
+
+  should "Invalid gridsquare check 2" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('EM1')
+    assert_equal(false, grid)
+  end
+
+  should "Invalid gridsquare check 3" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('13')
+    assert_equal(false, grid)
+  end
+
+  should "Invalid gridsquare check 4" do
+    h = HamRadio.new
+    grid = h.valid_gridsquare('EM131')
+    assert_equal(false, grid)
+  end
 
 end
