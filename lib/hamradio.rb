@@ -49,4 +49,8 @@ class HamRadio
     c['calls']
   end
 
+  def valid_callsign(call)
+    (call =~ /^([BFGIKMNTW]|[A-Z0-9]{2})[0-9][A-Z0-9]{0,3}[A-Z]$/i) != nil
+  end
+
 end

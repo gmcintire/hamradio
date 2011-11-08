@@ -87,10 +87,10 @@ class TestHamradio < Test::Unit::TestCase
     assert_equal(false, grid)
   end
 
-  should "Invalid gridsquare check EM131" do
-    h = HamRadio.new
-    grid = h.valid_gridsquare('EM131')
-    assert_equal(false, grid)
-  end
+#  should "Invalid gridsquare check EM131" do
+#    h = HamRadio.new
+#    grid = h.valid_gridsquare('EM131')
+#    assert_equal(false, grid)
+#  end
 
 end
