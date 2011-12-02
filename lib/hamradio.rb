@@ -38,6 +38,21 @@ class HamRadio
 
   end
 
+  def grid_decode(gridsquare)
+    gridsquare = "EM13sf"
+    gridsquare += 'MM' if gridsquare.count == 4
+
+    a = gridsquare[0].ord - 'A'.ord
+    b = gridsquare[1].ord - 'A'.ord
+    c = gridsquare[2].ord - '0'.ord
+    d = gridsquare[3].ord - '0'.ord
+    e = gridsquare[4].upcase.ord - 'A'.ord
+    f = gridsquare[5].upcase.ord - 'A'.ord
+    lon = (a*20) + (c*2) + ((e+0.5)/12) - 180
+    lat = (b*10) + d + ((f+0.5)/24) - 90
+    [lat,lon]
+  end
+
   def valid_gridsquare(grid)
     (grid =~ /[a-z][a-z]\d\d[a-z]*/i) != nil
   end
