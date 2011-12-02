@@ -40,7 +40,7 @@ class HamRadio
 
   def grid_decode(gridsquare)
     gridsquare = "EM13sf"
-    gridsquare += 'MM' if gridsquare.count == 4
+    gridsquare += 'MM' if gridsquare.size == 4
 
     a = gridsquare[0].ord - 'A'.ord
     b = gridsquare[1].ord - 'A'.ord
