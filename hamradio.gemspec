@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "hamradio"
-  s.version = "0.4.0"
+  s.version = "0.4.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Graham McIntire W5ISP"]
-  s.date = "2011-11-08"
+  s.date = "2011-12-02"
   s.description = "Includes grid square decoding/encoding & call sign lookup."
   s.email = "gmcintire@gmail.com"
   s.extra_rdoc_files = [
