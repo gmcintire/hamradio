@@ -28,6 +28,9 @@ Ruby 1.9+ is required.
 
 == Copyright
 
-Copyright (c) 2011 Graham McIntire. See LICENSE.txt for
+Copyright (c) 2012 Graham McIntire. See LICENSE for
 further details.
 
+== License
+
+MIT, see LICENSE for more details.
