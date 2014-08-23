@@ -108,7 +108,7 @@ class HamRadio
   def get_dxcc_data(call)
      begin
         return XmlSimple.xml_in(open("http://www.hamqth.com/dxcc.php?callsign=#{call}"))
-     rescue Exception => e
+     rescue
         raise Exception, "Error getting DXCC data: #{e.to_s}"
      end
   end
