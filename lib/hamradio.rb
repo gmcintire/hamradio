@@ -1,9 +1,50 @@
 class HamRadio
 
-  def initialize()
+  require 'open-uri'
+  require 'xmlsimple'
 
+  def get_session
+     begin
+         hamqth_xml  = open("http://www.hamqth.com/xml.php?u=#{@call}&p=#{@pass}") 
+         hamqth_data = XmlSimple.xml_in(hamqth_xml)
+         session_data = hamqth_data['session'][0]
+         if not session_data['error'].nil?
+             raise Exception, hamqth_data['session'][0]['error'][0]
+         end
+         if session_data['session_id'].nil?
+             raise Exception, "Unknown error (no details; sorry)"
+         end
+         @session = hamqth_data['session'][0]['session_id'][0]
+     rescue Exception => e
+         puts "Could not initialize HamQTH session - continuing"
+         if not e.nil?
+             puts "There was an error: #{e.to_s}"
+         end
+         @session = nil
+     end
   end
 
+  def initialize(call=nil, pass=nil)
+     @call = call
+     @pass = pass
+     @session = nil
+     if not @call.nil?
+         if not @pass.nil?
+             get_session()
+         end
+     end
+  end
+
+  def parse_search(data)
+      station_data = {}
+      data.keys.each do |key|
+          value = data[key][0]
+          station_data[key.to_sym] = value
+      end
+      station_data[:callsign].upcase!
+      station_data
+  end
+  
   def grid_encode(dms)
 
     # return nil if this isn't a valid gridsquare
@@ -56,11 +97,53 @@ class HamRadio
     (grid =~ /[a-z][a-z]\d\d[a-z]*/i) != nil
   end
 
-  def lookup_callsign(call)
-    require 'nestful'
+  def get_lookup_data(call)
+     begin
+         return XmlSimple.xml_in(open("http://www.hamqth.com/xml.php?id=#{@session}&callsign=#{call}&prg=rubyHamRadioGem"))
+     rescue Exception => e
+         raise Exception, "Error getting callsign data: #{e.to_s}"
+     end
+  end
+  
+  def get_dxcc_data(call)
+     begin
+        return XmlSimple.xml_in(open("http://www.hamqth.com/dxcc.php?callsign=#{call}"))
+     rescue
+        raise Exception, "Error getting DXCC data: #{e.to_s}"
+     end
+  end
 
-    c = Nestful.get 'http://callbytxt.org/db/'+call+'.json', :format => :json #=> {:json_hash => 1}
-    c['calls']
+  def lookup_callsign(call)
+     query = nil
+     begin
+         query = get_lookup_data(call)
+         if not query['session'].nil?
+             error = query['session'][0]['error'][0]
+             if error.match(/not exist or expired/)
+                 get_session()
+                 query = get_lookup_data(call)
+             else
+                 raise Exception, error
+             end
+         end
+         parse_search(query['search'][0])
+     rescue Exception => e
+         puts "Could not get callsign data for #{call}"
+         puts "There was an error: #{e.to_s}"
+         return nil
+     end
+  end
+
+  def lookup_dxcc(call)
+      query = nil
+      begin
+          query = get_dxcc_data(call)
+          parse_search(query['dxcc'][0])
+      rescue Exception => e
+          puts "Could not get DXCC data for #{call}"
+          puts "There was an error: #{e.to_s}"
+          return nil
+      end
   end
 
   def valid_callsign(call)

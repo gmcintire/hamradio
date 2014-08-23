@@ -2,7 +2,7 @@
 
 {<img src="http://travis-ci.org/gmcintire/hamradio.png" />}[http://travis-ci.org/gmcintire/hamradio]
 
-A small collection of Amateur (Ham) radio tools put together by Graham McIntire W5ISP.
+A small collection of Amateur (Ham) radio tools put together by Graham McIntire, W5ISP and Creede Lambard, WA7KPK.
 
 Ruby 1.9+ is required.
 
@@ -10,11 +10,28 @@ Ruby 1.9+ is required.
 * To encode a gridsquare from decimal latitude/longitude
     h = HamRadio.new
     grid = h.grid_encode([33.113675,-96.487856])
-* Callsign lookup (using callbytxt.org)
-    h = HamRadio.new
-    call = h.lookup_callsign 'w5isp'
+* Callsign lookup (using hamqth.com)
+    h = HamRadio.new('YOUR_HAMQTH_USERNAME','YOUR_HAMQTH_PASSWORD')
+    call_info = h.lookup_callsign 'w1aw'
   Will return a hash such as :
-    {"callsign"=>"W5ISP", "city"=>"BLUE RIDGE", "country"=>nil, "created_at"=>"2011-06-19T23:19:47Z", "dob"=>nil, "effective"=>"2011-04-30", "expiration"=>"2021-04-30", "first_name"=>"GRAHAM D", "gridsquare"=>"\u0004\f13\u0012\u0005", "id"=>585745, "last_name"=>"MCINTIRE", "lat"=>"33.245919", "license_class"=>"G", "long"=>"-96.426614", "precision"=>"address", "previous_call"=>"", "previous_class"=>nil, "state"=>"TX", "street"=>"11411 CR 571", "updated_at"=>"2011-06-23T20:41:47Z", "zip"=>"75424"}
+    { :callsign => "W1AW", :qth => "Newington", :country => "United States", :adif => "291", :itu => "8", :cq => "5", :grid => "FN31PR", :adr_street1 => "225 Main St", :adr_city => "Newington", :adr_zip => "06111", :adr_country => "United States", :adr_adif => "291", :us_state => "CT", :us_county => "Hartford", :lotw => "Y", :qsl => "?", :eqsl => "Y", :latitude => "41.7152046", :longitude => "-72.72690920000002", :continent => "NA", :utc_offset => "5", :lookups => "123456", :registered => "N" }
+  Note that callbytxt.org, the previous source of ham callsign information, is no longer active. This forced changes to the gem, some breaking:
+  * This gem now uses hamqth.com for its callsign lookups
+  * Hamqth.com requires registration to use their callsign lookup API. It's free and they're not intrusive. I understand that some developers might not want to register, but I don't know of a better free alternative (or even one nearly as good).
+  * You need to supply your HamQTH username and password when initializing the HamRadio object, as shown above.
+  * The structure of the data returned has more fields than previously.
+  * The hash now uses symbols instead of strings for keys. 
+* DXCC lookup
+    h = HamRadio.new
+    dxcc_info = h.lookup_dxcc('W1AW')
+  will return a hash such as : 
+    {:callsign=>"W1AW", :name=>"United States", :details=>"USA - CT,MA,ME,NH,RI,VT", :continent=>"NA", :utc=>"5", :waz=>"05", :itu=>"08", :lat=>"42.38", :lng=>"-71.67", :adif=>"291"}
+  Note that you don't need to log into HamQTH.com to access this function
+* Callsign validation
+    h = HamRadio.new
+    is_valid = h.valid_callsign('W1AW')
+  This function returns true or false depending on whether it thinks the callsign has a valid structure according to its regular expression. It's not perfect, but it does a pretty good job.
+  It doesn't check for whether the callsign has actually been issued, or whether it even belongs to any country. It also doesn't deal with slashed prefixes or suffixes (e.g. WA7KPK/VE7).
 
 == Contributing to hamradio
 
