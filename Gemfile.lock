@@ -15,6 +15,7 @@ GEM
     rake (0.9.2.2)
     rcov (0.9.11)
     shoulda (2.11.3)
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
@@ -26,3 +27,4 @@ DEPENDENCIES
   log_buddy
   rcov
   shoulda
+  xml-simple

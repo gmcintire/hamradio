@@ -1,10 +1,10 @@
-# require 'helper'
-require "./helper"
+require 'helper'
 
 class TestHamradio < Test::Unit::TestCase
 
-  hq_call = 'YOUR_HAMQTH_USERNAME'
-  hq_pw   = 'YOUR_HAMQTH_PASSWORD'
+   hq_call = 'YOUR_HAMQTH_USERNAME'
+   hq_pw   = 'YOUR_HAMQTH_PASSWORD'
+
 
   should "encode gridsquare culleoka" do
     h = HamRadio.new
