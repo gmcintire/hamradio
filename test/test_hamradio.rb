@@ -1,9 +1,10 @@
 require 'helper'
+require 'base64'
 
 class TestHamradio < Test::Unit::TestCase
 
-   hq_call = 'YOUR_HAMQTH_USERNAME'
-   hq_pw   = 'YOUR_HAMQTH_PASSWORD'
+   hq_call = 'RubyGemTester'
+   hq_pw   =  Base64.decode64("SW52aXNpYmxlU2FuZHdpY2g=")
 
 
   should "encode gridsquare culleoka" do
@@ -104,12 +105,5 @@ class TestHamradio < Test::Unit::TestCase
 #    grid = h.valid_gridsquare('EM131')
 #    assert_equal(false, grid)
 #  end
-
-  puts
-  puts "If the test 'look up a valid callsign' fails, it may be because you need"
-  puts "to enter a valid HamQTH user name and password at the top of the class."
-  puts "If you don't have a user account at HamQTH, you can register for one"
-  puts "(it's free!) at http://www.hamqth.com/register.php."
-  puts
 
 end
