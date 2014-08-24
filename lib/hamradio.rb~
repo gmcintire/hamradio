@@ -16,9 +16,9 @@ class HamRadio
          end
          @session = hamqth_data['session'][0]['session_id'][0]
      rescue Exception => e
-         STDERR.puts "Could not initialize HamQTH session - continuing"
+         puts "Could not initialize HamQTH session - continuing"
          if not e.nil?
-             STDERR.puts "There was an error: #{e.to_s}"
+             puts "There was an error: #{e.to_s}"
          end
          @session = nil
      end
@@ -128,11 +128,9 @@ class HamRadio
          end
          parse_search(query['search'][0])
      rescue Exception => e
-         if not e.to_s.match(/Callsign not found/i)
-             STDERR.puts "Could not get callsign data for #{call}"
-             STDERR.puts "There was an error: #{e.to_s}"
-         end
-         return { :callsign => "#{call}", :qth => nil, :country => nil }
+         puts "Could not get callsign data for #{call}"
+         puts "There was an error: #{e.to_s}"
+         return nil
      end
   end
 
@@ -142,11 +140,9 @@ class HamRadio
           query = get_dxcc_data(call)
           parse_search(query['dxcc'][0])
       rescue Exception => e
-          if not e.to_s.match(/Callsign not found/i)
-              STDERR.puts "Could not get DXCC data for #{call}"
-              STDERR.puts "There was an error: #{e.to_s}"
-          end
-          return { :callsign => "#{call}", :name => nil, :details => nil }
+          puts "Could not get DXCC data for #{call}"
+          puts "There was an error: #{e.to_s}"
+          return nil
       end
   end
 
