@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem 'httparty'
+gem 'xml-simple'
 
 group :development do
   gem "log_buddy"
