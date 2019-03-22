@@ -6,5 +6,5 @@ group :development do
   gem "shoulda"
   gem "bundler"
   gem "jeweler"
-  gem "rcov"
+  gem "simplecov"
 end
