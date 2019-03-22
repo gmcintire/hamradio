@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "hamradio"
-  s.version = "0.4.3"
+  s.version = "0.4.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Graham McIntire W5ISP"]
-  s.date = "2011-12-02"
+  s.date = "2019-03-22"
   s.description = "Includes grid square decoding/encoding & call sign lookup."
   s.email = "gmcintire@gmail.com"
   s.extra_rdoc_files = [
@@ -45,14 +45,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
       s.add_dependency(%q<httparty>, [">= 0"])
       s.add_dependency(%q<log_buddy>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
     s.add_dependency(%q<httparty>, [">= 0"])
@@ -60,7 +60,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
   end
 end
 
